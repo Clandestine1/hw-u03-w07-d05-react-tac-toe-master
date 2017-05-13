@@ -1,0 +1,179 @@
+  @font-face {
+  font-family: "Beyond";
+  src: url("./components/Beyond.ttf")
+}
+
+body {
+  font: 14px "Century Gothic", Futura, sans-serif;
+  background-image: url('lay.jpg');
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  font-size: 28px;
+  text-align: center;
+}
+
+a {
+	text-decoration: none;
+	animation: myColors 7s infinite alternate;
+}
+
+#info {
+	border: 14px solid hotpink;
+	position: absolute;
+	width: 10%;
+	height: 40%;
+	right: 0;
+	opacity: 0.5;
+	background-color: #FFD3F7;
+	margin-top: 17%;
+}
+
+#info:hover {
+	opacity: 1;
+}
+
+#game {
+	border: 14px solid hotpink;
+ 	width: 440px;
+  	height: 440px;
+  	opacity: .5;
+  	margin-top: 7%;
+}
+
+#game:hover {
+	opacity: 1;
+}
+
+#bs {
+	position: absolute;
+	top: 0;
+	font-size: 74px;
+	text-shadow: 2px 4px pink;
+	margin-top: -1%;
+	font-weight: bolder;
+	font-family: Beyond;
+	animation: myColors 7s infinite;
+	animation: texty 14s infinite;
+}
+
+ol, ul {
+  padding-left: 30px;
+  list-style-type:none;
+  margin-right: 44%;
+}
+
+.board-row:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+.status {
+  margin-bottom: 10px;
+}
+
+.square {
+  background: #FFD3F7;
+  border: 4px solid hotpink;
+  float: left;
+  font-size: 44px;
+  font-weight: bold;
+  line-height: 64px;
+  margin-right: -1px;
+  padding: 4;
+  text-align: center;
+  width: 147.5px;
+  height: 147.5px;
+}
+
+.square:focus {
+  outline: black;
+}
+
+.square:nth-child(4n) {
+  color: purple;
+}
+
+.square:hover:first-child {
+  color: purple;
+  background-image: url('jersey.png') !important;
+  background-position: center;
+  background-size: cover;
+}
+
+.square:not(:first-child):not(:last-child):hover {
+  color: purple;
+  background-image: url('rainbow.png') !important;
+  background-position: center;
+  background-size: cover;
+}
+
+.square:hover:last-child {
+  color: purple;
+  background-image: url('t.png') !important;
+  background-position: center;
+  background-size: cover;
+}
+
+.square:nth-child(4n + 1) {
+  color: silver;
+}
+.square:nth-child(4n + 2) {
+  color: purple;
+}
+.square:nth-child(4n + 3) {
+  color: silver;
+}
+.square:nth-child(4n + 4) {
+  color: purple;
+}
+.square:nth-child(4n + 5) {
+  color: silver;
+}
+.square:nth-child(4n + 6) {
+  color: purple;
+}
+.square:nth-child(4n + 7) {
+  color: silver;
+}
+.square:nth-child(4n + 8) {
+  color: purple;
+}
+.square:nth-child(4n + 9) {
+  color: silver;
+}
+
+.kbd-navigation .square:focus {
+  background: #ddd;
+}
+
+.game {
+  display: flex;
+  flex-direction: row;
+}
+
+.game-info {
+  margin-left: 20px;
+}
+
+@keyframes myColors {
+  0% {color: black; }
+  10% {color: aqua;}
+  20% {color: deeppink;}
+  30% {color: purple;}
+  40% {color: orange;}
+  50% {color: yellow;}
+  60% {color: lightblue;}
+  70% {color: lightgreen;}
+  80% {color: red;}
+  90% {color: hotpink;}
+  100% {color: mediumpurple;}
+
+}
+
+@keyframes texty {
+	0% {text-shadow: 2px 4px pink;}
+	50% {text-shadow: 40px 44px pink;}
+	100% {text-shadow: 2px 4px pink;}
+}

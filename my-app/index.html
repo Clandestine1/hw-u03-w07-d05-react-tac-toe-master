@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    
+</head>
+
+<body>
+
+
+
+<div id="errors" style="
+  background: #c00;
+  color: #fff;
+  display: none;
+  margin: -20px -20px 20px;
+  padding: 20px;
+  white-space: pre-wrap;">
+</div>
+
+<div id="root"></div>
+
+<script>
+// Event listener for mousedown, then passes function
+window.addEventListener('mousedown', function(e) {
+  document.body.classList.add('mouse-navigation');
+  document.body.classList.remove('kbd-navigation');
+});
+//Event listener for keydown, then passes function if key is equal to 9
+window.addEventListener('keydown', function(e) {
+  if (e.keyCode === 9) {
+    document.body.classList.add('kbd-navigation');
+    document.body.classList.remove('mouse-navigation');
+  }
+});
+//Event listener that on click passes a function that gets attributes if tagName is equal to 'A'
+window.addEventListener('click', function(e) {
+  if (e.target.tagName === 'A' && e.target.getAttribute('href') === '#') {
+    e.preventDefault();
+  }
+});
+//Error stack
+window.onerror = function(message, source, line, col, error) {
+  var text = error ? error.stack || error : message + ' (at ' + source + ':' + line + ':' + col + ')';
+  errors.textContent += text + '\n';
+  errors.style.display = '';
+};
+//Error stack
+console.error = (function(old) {
+  return function error() {
+    errors.textContent += Array.prototype.slice.call(arguments).join(' ') + '\n';
+    errors.style.display = '';
+    old.apply(this, arguments);
+  }
+})(console.error);
+</script>
+</body>
+
+</html>
